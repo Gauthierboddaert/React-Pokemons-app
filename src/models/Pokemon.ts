@@ -1,3 +1,5 @@
+import Type from "./Type";
+
 export default class Pokemon {
 
     id: number;
@@ -5,7 +7,7 @@ export default class Pokemon {
     cp: number;
     name: string;
     picture: string;
-    types: Array<string>;
+    types: Array<Type>;
     created: Date;
     constructor(
         id: number,
@@ -13,7 +15,7 @@ export default class Pokemon {
         cp: number = 10,
         name: string = '',
         picture: string = '',
-        types: Array<string> = ['Normal'],
+        types: Array<Type> = [],
         created: Date = new Date()
 
     ) {
