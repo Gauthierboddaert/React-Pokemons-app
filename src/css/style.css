@@ -1,0 +1,25 @@
+.pokedex {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: red;
+    margin: unset;
+    padding: unset;
+}
+
+h1{
+    height:max-content;
+}
+
+.containerPokedex{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 40%;
+}
+
+.card{
+
+}

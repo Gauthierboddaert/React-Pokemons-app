@@ -1,15 +1,27 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useState, useEffect} from "react";
 import Pokemon from "./models/Pokemon";
-import MockPokemon from "./models/mock-pokemon";
-
+import MockPokemon, {POKEMONS} from "./models/mock-pokemon";
+import './css/style.css'
 const App: FunctionComponent = () => {
 
-    const [name, setState] = useState<String>('react');
-    const [pokemon, setPokemon] = useState<Array<Pokemon>>(MockPokemon)
+    //const [name, setState] = useState<String>('react');
+    const [pokemons, setPokemon] = useState<Pokemon[]>([])
+
+    useEffect( () => {
+        setPokemon(POKEMONS)
+    })
+
 
     return (
-        <h1>Il y a {pokemon.length} présent dans le pokedex </h1>
-
+        <div className="pokedex">
+            <div className="containerPokedex">
+                {pokemons.map(({id, name, picture}) => (
+                    <div className='card'>
+                        <img src={picture} alt={name}/>
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }
 
