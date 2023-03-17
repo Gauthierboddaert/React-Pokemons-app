@@ -1,6 +1,5 @@
 import React, {FunctionComponent, useState} from "react";
 import Pokemon from "../models/Pokemon";
-import formatDate from "../utils/formate-date";
 
 type Props = {
     pokemon: Pokemon,

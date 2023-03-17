@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import Pokemon from "../models/Pokemon";
 import POKEMONS from "../models/mock-pokemon";
 const usePokemons = () => {
@@ -6,9 +6,11 @@ const usePokemons = () => {
 
     useEffect(() => {
         setPokemons(POKEMONS)
-    })
+    }, [])
 
     return pokemons;
 }
+
+
 
 export default usePokemons;

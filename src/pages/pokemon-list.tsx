@@ -1,6 +1,5 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent} from "react";
 import Pokemon from "../models/Pokemon";
-import POKEMONS from "../models/mock-pokemon";
 import PokemonCard from "../components/Pokemon-card";
 import usePokemons from "../hooks/pokemon-hook";
 
@@ -12,7 +11,7 @@ const PokemonList : FunctionComponent = () => {
         <div className="pokedex">
             <h1>Pokedex</h1>
             <div className="containerPokedex">
-                {pokemons.map((pokemon) => (
+                {pokemons.map((pokemon: Pokemon) => (
                     <PokemonCard key={pokemon.id} pokemon={pokemon}/>
                 ))}
             </div>
