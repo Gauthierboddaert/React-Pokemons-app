@@ -125,7 +125,18 @@ th{
     text-align: center;
     margin: unset;
     font-weight: normal;
+}
 
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 300px;
 }
 
 

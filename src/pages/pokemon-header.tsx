@@ -4,6 +4,8 @@ import '../css/header.css'
 import PokemonList from "./pokemon-list";
 import PokemonDetails from "./pokemon-details";
 import PageNotFound from "./page-not-found";
+import PokemonForm from "../components/pokemon-form";
+import pokemonEdit from "./pokemon-edit";
 const PokemonHeader : FunctionComponent = () => {
 
     return (
@@ -13,7 +15,8 @@ const PokemonHeader : FunctionComponent = () => {
             </nav>
             <Switch>
                 <Route exact path="/pokemons" component={PokemonList}/>
-                <Route exact path="/pokemons/:id" component={PokemonDetails}/>
+                <Route exact path="/pokemon/:id" component={PokemonDetails}/>
+                <Route exact path="/pokemon/edit/:id" component={pokemonEdit}/>
                 <Route component={PageNotFound}/>
             </Switch>
         </Router>

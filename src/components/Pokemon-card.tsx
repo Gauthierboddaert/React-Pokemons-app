@@ -20,11 +20,15 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}
     }
 
     const goToPokemon = (id: number) => {
-        history.push(`/pokemons/${id}`)
+        history.push(`/pokemon/${id}`)
     }
+
+    const goToEditPokemon = (id: number) => {
+        history.push(`/pokemon/edit/${id}`)
+    }
+
     return(
         <div
-            onClick={() => goToPokemon(pokemon.id)}
             style={{borderColor: color}}
             className='card'
             onMouseLeave={hideBorder}
@@ -32,6 +36,7 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}
         >
             <p>{pokemon.name}</p>
             <img
+                onClick={() => goToPokemon(pokemon.id)}
                 src={pokemon.picture}
                 alt={pokemon.name}
             />
@@ -40,7 +45,7 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}
                     <p key={color} className="type" style={{background: color}}>{name}</p>
                 ))}
             </div>
-            {/*<p>{formatDate(pokemon.created)}</p>*/}
+            <button onClick={() => goToEditPokemon(pokemon.id)}>Edit</button>
         </div>
     );
 
