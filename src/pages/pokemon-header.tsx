@@ -4,7 +4,6 @@ import '../css/header.css'
 import PokemonList from "./pokemon-list";
 import PokemonDetails from "./pokemon-details";
 import PageNotFound from "./page-not-found";
-import PokemonForm from "../components/pokemon-form";
 import pokemonEdit from "./pokemon-edit";
 const PokemonHeader : FunctionComponent = () => {
 

@@ -36,7 +36,7 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}
         >
             <p>{pokemon.name}</p>
             <img
-                onClick={() => goToPokemon(pokemon.id)}
+                onDoubleClick={() => goToPokemon(pokemon.id)}
                 src={pokemon.picture}
                 alt={pokemon.name}
             />

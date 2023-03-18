@@ -1,6 +1,4 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
-import Pokemon from "../models/Pokemon";
-import POKEMONS from "../models/mock-pokemon";
+import React, {FunctionComponent} from "react";
 import {RouteComponentProps} from "react-router-dom";
 import PokemonForm from "../components/pokemon-form";
 import usePokemonById from "../hooks/use pokemon-by-id-hook";
