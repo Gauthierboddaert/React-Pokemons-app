@@ -9,7 +9,6 @@ const PokemonList : FunctionComponent = () => {
 
     return (
         <div className="pokedex">
-            <h1>Pokedex</h1>
             <div className="containerPokedex">
                 {pokemons.map((pokemon: Pokemon) => (
                     <PokemonCard key={pokemon.id} pokemon={pokemon}/>
