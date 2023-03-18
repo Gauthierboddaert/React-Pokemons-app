@@ -1,5 +1,6 @@
 import React, {FunctionComponent, useState} from "react";
 import Pokemon from "../models/Pokemon";
+import {useHistory} from "react-router-dom";
 
 type Props = {
     pokemon: Pokemon,
@@ -9,6 +10,7 @@ type Props = {
 const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}) => {
 
     const [color, setColor] = useState<string>('');
+    const history = useHistory();
     const showBorder = () => {
         setColor('red');
     }
@@ -17,8 +19,12 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}
         setColor(borderColor);
     }
 
+    const goToPokemon = (id: number) => {
+        history.push(`/pokemons/${id}`)
+    }
     return(
         <div
+            onClick={() => goToPokemon(pokemon.id)}
             style={{borderColor: color}}
             className='card'
             onMouseLeave={hideBorder}

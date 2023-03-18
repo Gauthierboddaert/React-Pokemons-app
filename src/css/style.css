@@ -65,7 +65,6 @@ h1{
 h1 a{
     font-family: "Pokemon Hollow";
     font-size: 70px;
-    
     color: black;
     padding: unset;
     margin: unset;
@@ -79,5 +78,56 @@ nav{
     align-items: center;
     justify-content: center;
 }
+
+.containerDetails{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+}
+
+.card-details{
+    border: solid 1px black;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-details div p{
+    font-size: 55px;
+    margin: unset;
+    padding: unset;
+}
+
+table{
+    width: 100%;
+    margin: unset;
+}
+
+tr{
+    width: 100%;
+    margin: unset;
+}
+
+td{
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    margin: unset;
+    background: #ecebeb;
+}
+
+th{
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    margin: unset;
+    font-weight: normal;
+
+}
+
+
 
 
