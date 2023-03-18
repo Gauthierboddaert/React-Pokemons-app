@@ -1,6 +1,6 @@
 # React-Pokemons-app
 
-### Go in the directory
+Go in the directory
 ```txt
 cd React-Pokemons-app
 ```
