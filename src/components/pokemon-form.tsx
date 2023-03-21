@@ -39,7 +39,6 @@ const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(form);
         history.push('/pokemonss')
     }
 

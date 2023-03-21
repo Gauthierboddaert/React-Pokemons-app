@@ -5,7 +5,7 @@ export default class Pokemon {
     id: number;
     hp: number;
     cp: number;
-    name: string;
+    slug: string;
     picture: string;
     types: Array<Type>;
     created: Date;
@@ -13,7 +13,7 @@ export default class Pokemon {
         id: number,
         hp: number = 100,
         cp: number = 10,
-        name: string = '',
+        slug: string = '',
         picture: string = '',
         types: Array<Type> = [],
         created: Date = new Date()
@@ -22,7 +22,7 @@ export default class Pokemon {
         this.id = id;
         this.hp = hp;
         this.cp  = cp;
-        this.name = name;
+        this.slug = slug;
         this.picture = picture;
         this.types = types;
         this.created = created;
