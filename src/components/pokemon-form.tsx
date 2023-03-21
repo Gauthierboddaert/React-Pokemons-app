@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useState} from "react";
 import Pokemon from "../models/Pokemon";
 import Type from "../models/Type";
+import {useHistory} from "react-router-dom";
 
 type Props = {
     pokemon: Pokemon
@@ -24,7 +25,7 @@ const types: Type[] = [
 
 const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
 
-    const [form] = useState<Form>({
+    const [form, setForm] = useState<Form>({
         name: { value: pokemon.name },
         hp: {value: pokemon.hp},
         type: {value: pokemon.types}
@@ -34,25 +35,38 @@ const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
         return form.type.value[0].name.includes(type);
     };
 
+    const history = useHistory();
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(form);
+        history.push('/pokemonss')
+    }
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const fieldName: string = e.target.name;
+        const valueFiled: string = e.target.value;
+        const newField: Field = {[fieldName]: {value: fieldName}, value : undefined}
+
+        setForm({...form, ...newField})
     }
 
     return (
-        <form>
+        <form onSubmit={e => handleSubmit(e)}>
             <div className="form">
                 <label>Nom</label>
-                <input type="text" value={form.name.value}></input>
+                <input type="text" onChange={e => handleInputChange(e)} id="name" value={form.name.value}></input>
                 <label>Points de vie</label>
-                <input value={form.hp.value} type="text"></input>
+                <input onChange={(e) => {handleInputChange(e)}} id="hp" name="hp" value={form.hp.value} type="text"></input>
                 <label>Types</label>
                 {types.map((type: Type) => (
                     <div key={type.name}>
                         <label style={{color: type.color}} htmlFor="">{type.name}</label>
-                        <input value={type.name} checked={hasType(type.name)} type="checkbox"/>
+                        <input onChange={(e) => {handleInputChange(e)}} value={type.name} checked={hasType(type.name)} type="checkbox"/>
                     </div>
                 ))}
             </div>
+            <button>envoyer</button>
         </form>
     )
 }
