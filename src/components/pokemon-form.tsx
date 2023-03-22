@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState} from "react";
-import Pokemon from "../models/Pokemon";
+import Pokemon from "../type/Pokemon";
 import Type from "../models/Type";
 import {useHistory} from "react-router-dom";
 
@@ -13,7 +13,6 @@ type Field = {
 
 type Form = {
     name: Field,
-    hp: Field,
     type: Field
 }
 
@@ -27,8 +26,7 @@ const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
 
     const [form, setForm] = useState<Form>({
         name: { value: pokemon.name },
-        hp: {value: pokemon.hp},
-        type: {value: pokemon.types}
+        type: {value: pokemon.apiTypes}
     });
 
     const hasType = (type: string) => {
@@ -45,7 +43,7 @@ const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const fieldName: string = e.target.name;
         const valueFiled: string = e.target.value;
-        const newField: Field = {[fieldName]: {value: fieldName}, value : undefined}
+        const newField: Field = {[fieldName]: {value: valueFiled}, value : undefined}
 
         setForm({...form, ...newField})
     }
@@ -55,8 +53,6 @@ const PokemonForm : FunctionComponent<Props> = ({pokemon}) => {
             <div className="form">
                 <label>Nom</label>
                 <input type="text" onChange={e => handleInputChange(e)} id="name" value={form.name.value}></input>
-                <label>Points de vie</label>
-                <input onChange={(e) => {handleInputChange(e)}} id="hp" name="hp" value={form.hp.value} type="text"></input>
                 <label>Types</label>
                 {types.map((type: Type) => (
                     <div key={type.name}>

@@ -21,7 +21,7 @@ const PokemonDetails : FunctionComponent<RouteComponentProps<Params>> = ({match}
                 (
                     <div className="card-details">
                        <div> <p>{pokemon.name}</p></div>
-                        <img src={pokemon.picture} alt={pokemon.name}/>
+                        <img src={pokemon.image} alt={pokemon.name}/>
                         <table>
                             <tbody>
                                 <tr>
@@ -30,22 +30,13 @@ const PokemonDetails : FunctionComponent<RouteComponentProps<Params>> = ({match}
                                 </tr>
                                 <tr>
                                     <td>Types</td>
-                                    {pokemon.types.map(({color, name}) => (
-                                        <th key={color} className="type" style={{background: color}}>{name}</th>
+                                    {pokemon.apiTypes.map((type: any) => (
+                                        <div>
+                                            <th key={type.name} className="type">{type.name}</th>
+                                            <th><img src={type.image} alt="" /></th>
+                                        </div>
                                     ))}
 
-                                </tr>
-                                <tr>
-                                    <td>Point de vie</td>
-                                    <th>{pokemon.hp}</th>
-                                </tr>
-                                <tr>
-                                    <td>Dégats</td>
-                                    <th>{pokemon.cp}</th>
-                                </tr>
-                                <tr>
-                                    <td>Date de création</td>
-                                    <th>{formateDate(pokemon.created)}</th>
                                 </tr>
                             </tbody>
                         </table>

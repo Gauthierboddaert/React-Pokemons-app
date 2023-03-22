@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useState} from "react";
 import Pokemon from "../type/Pokemon";
 import {useHistory} from "react-router-dom";
+import './style.css'
 
 type Props = {
     pokemon: Pokemon,
@@ -9,49 +10,34 @@ type Props = {
 
 const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}) => {
 
-    // const [color, setColor] = useState<string>('');
+     const [color, setColor] = useState<string>('');
     const history = useHistory();
-    // const showBorder = () => {
-    //     setColor('red');
-    // }
 
-    // const hideBorder = () => {
-    //     setColor(borderColor);
-    // }
+     const showBorder = () => {
+         setColor('red');
+     }
+
+     const hideBorder = () => {
+         setColor(borderColor);
+     }
 
     // const goToPokemon = (id: number) => {
     //     history.push(`/pokemon/${id}`)
     // }
 
-    // const goToEditPokemon = (id: number) => {
-    //     history.push(`/pokemon/edit/${id}`)
-    // }
-
+    const goToPokemon = (id: number) => {
+        history.push(`/pokemon/${id}`)
+    }
     return(
-        <div>
-            <h1>{pokemon.name}</h1>
+        <div onDoubleClick={() => goToPokemon(pokemon.id)} style={{borderColor: color}} onMouseLeave={hideBorder} onMouseEnter={showBorder} className='card'>
+            <p>{pokemon.name}</p>
             <img src={pokemon.image} alt="" />
-            
+            <div className="infosPoke">{pokemon.apiTypes.map((type: any) => (
+                <div key={type.name}>
+                    <img className="type" src={type.image} alt="" />
+                </div>
+            ))}</div>
         </div>
-        // <div
-        //     style={{borderColor: color}}
-        //     className='card'
-        //     onMouseLeave={hideBorder}
-        //     onMouseEnter={showBorder}
-        // >
-        //     <p>{pokemon.name}</p>
-        //     <img
-        //         onDoubleClick={() => goToPokemon(pokemon.id)}
-        //         src={pokemon.picture}
-        //         alt={pokemon.name}
-        //     />
-        //     <div className="types">
-        //         {pokemon.types.map(({color, name}) => (
-        //             <p key={color} className="type" style={{background: color}}>{name}</p>
-        //         ))}
-        //     </div>
-        //     <button onClick={() => goToEditPokemon(pokemon.id)}>Edit</button>
-        // </div>
     );
 
 }

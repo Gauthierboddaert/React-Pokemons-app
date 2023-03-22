@@ -1,19 +1,19 @@
 import {useEffect, useState} from "react";
-import Pokemon from "../models/Pokemon";
-import POKEMONS from "../models/mock-pokemon";
+import Pokemon from "../type/Pokemon";
+import pokemonService from "../Service/pokemon-service";
 
 const usePokemonById = (id: string) => {
 
     const [pokemon, setPokemon] = useState<Pokemon|null>(null);
 
     useEffect(() => {
-        POKEMONS.forEach(pokemon => {
-            if(id === pokemon.id.toString())
-            {
-                setPokemon(pokemon)
-            }
-        })
-    }, [id])
+        pokemonService.getPokemonsById(id)
+        .then( (pokemon: any) => {
+            setPokemon(pokemon);
+        }
+    );
+        
+    }, [])
 
     return pokemon;
 }

@@ -1,0 +1,29 @@
+img{
+    width: 250px;
+}
+h1{
+    font-size: 13px;
+}
+
+.card{
+    margin: 10px 20px 0 0;
+    max-width: 330px;
+    background: #ecebeb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: solid 1px;
+}
+
+.type{
+    width: 60px;
+    border: none;
+}
+
+.infosPoke{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

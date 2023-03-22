@@ -1,5 +1,3 @@
-import React from "react";
-import Evolution from "../type/Evolution";
 import Pokemon from "../type/Pokemon";
 
 export default class pokemonService {
@@ -9,5 +7,9 @@ export default class pokemonService {
             .then(response => response.json());
     }
 
+    static getPokemonsById(id: string): Promise<Pokemon>{
+        return fetch(`https://pokebuildapi.fr/api/v1/pokemon/${id}`)
+        .then(response => response.json());
+    }
 }
 

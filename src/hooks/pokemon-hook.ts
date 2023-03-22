@@ -1,6 +1,5 @@
 import {useState, useEffect} from "react";
 import Pokemon from "../type/Pokemon";
-import POKEMONS from "../models/mock-pokemon";
 import pokemonService from "../Service/pokemon-service";
 
 const usePokemons = () => {

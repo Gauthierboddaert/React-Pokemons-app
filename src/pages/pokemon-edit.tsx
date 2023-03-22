@@ -9,6 +9,7 @@ type Props = {
 const PokemonEdit : FunctionComponent<RouteComponentProps<Props>> = ({match}) => {
 
     const pokemon = usePokemonById(match.params.id)
+
     return (
         <div>
             {pokemon ? (
