@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState} from "react";
-import Pokemon from "../models/Pokemon";
+import Pokemon from "../type/Pokemon";
 import {useHistory} from "react-router-dom";
 
 type Props = {
@@ -9,44 +9,49 @@ type Props = {
 
 const PokemonCard : FunctionComponent<Props> = ({pokemon, borderColor = 'black'}) => {
 
-    const [color, setColor] = useState<string>('');
+    // const [color, setColor] = useState<string>('');
     const history = useHistory();
-    const showBorder = () => {
-        setColor('red');
-    }
+    // const showBorder = () => {
+    //     setColor('red');
+    // }
 
-    const hideBorder = () => {
-        setColor(borderColor);
-    }
+    // const hideBorder = () => {
+    //     setColor(borderColor);
+    // }
 
-    const goToPokemon = (id: number) => {
-        history.push(`/pokemon/${id}`)
-    }
+    // const goToPokemon = (id: number) => {
+    //     history.push(`/pokemon/${id}`)
+    // }
 
-    const goToEditPokemon = (id: number) => {
-        history.push(`/pokemon/edit/${id}`)
-    }
+    // const goToEditPokemon = (id: number) => {
+    //     history.push(`/pokemon/edit/${id}`)
+    // }
 
     return(
-        <div
-            style={{borderColor: color}}
-            className='card'
-            onMouseLeave={hideBorder}
-            onMouseEnter={showBorder}
-        >
-            <p>{pokemon.name}</p>
-            <img
-                onDoubleClick={() => goToPokemon(pokemon.id)}
-                src={pokemon.picture}
-                alt={pokemon.name}
-            />
-            <div className="types">
-                {pokemon.types.map(({color, name}) => (
-                    <p key={color} className="type" style={{background: color}}>{name}</p>
-                ))}
-            </div>
-            <button onClick={() => goToEditPokemon(pokemon.id)}>Edit</button>
+        <div>
+            <h1>{pokemon.name}</h1>
+            <img src={pokemon.image} alt="" />
+            
         </div>
+        // <div
+        //     style={{borderColor: color}}
+        //     className='card'
+        //     onMouseLeave={hideBorder}
+        //     onMouseEnter={showBorder}
+        // >
+        //     <p>{pokemon.name}</p>
+        //     <img
+        //         onDoubleClick={() => goToPokemon(pokemon.id)}
+        //         src={pokemon.picture}
+        //         alt={pokemon.name}
+        //     />
+        //     <div className="types">
+        //         {pokemon.types.map(({color, name}) => (
+        //             <p key={color} className="type" style={{background: color}}>{name}</p>
+        //         ))}
+        //     </div>
+        //     <button onClick={() => goToEditPokemon(pokemon.id)}>Edit</button>
+        // </div>
     );
 
 }
